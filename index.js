@@ -1,5 +1,5 @@
 // primitifs
-const string = "hello world "
+const phrase = "laissez moi refléchir"
 const number = 15
 const boolean = true
 
@@ -12,15 +12,28 @@ const randomArray = [
 //object
 const valentin = { 
     "name": "valentin",
-    "age": 23,
+    "birthdate": "05/02/2001",
 }
 
 //fonction
 function estilmajeur(param1) {
     if (param1.age > 18) {
-        return true
+        return "Il est bien majeur !"
     } else {
-        return false
+        return " il ne l'est pas ... "
     }
 }
+function donneLanneeEnCours() {
+    return new Date().getFullYear()
+}
 
+function donneLanneeApartirDuneDateDeNaissance(date) {
+    return date.split("/")[2]
+}
+
+
+const birthYearOfValentin = donneLanneeApartirDuneDateDeNaissance(valentin.birthdate)
+const ageOfValentin = donneLanneeEnCours() - birthYearOfValentin
+
+console.log(ageOfValentin);
+console.log(estilmajeur({age: ageOfValentin}));
